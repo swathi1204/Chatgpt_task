@@ -31,7 +31,6 @@ const handleSubmit=async()=>{
     });
     delete configuration.baseOptions.headers['User-Agent'];
     const openai = new OpenAIApi(configuration);
-
     setOpen(true);
   const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
