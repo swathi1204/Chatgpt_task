@@ -27,7 +27,7 @@ const handleChange=async(e)=>{
 
 const handleSubmit=async()=>{
   const configuration = new Configuration({
-      apiKey:"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",
+      apiKey:process.env.REACT_APP_OPENAI,
     });
     delete configuration.baseOptions.headers['User-Agent'];
     const openai = new OpenAIApi(configuration);
@@ -38,6 +38,7 @@ const handleSubmit=async()=>{
       messages: [{role: "user", content: input}],
     })
   setResponse(response.data.choices[0].message.content)
+  console.log(response)
 }
 
 const handleKeyPress = (event) => {
